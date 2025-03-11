@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+# Import word list
+# Return one random word from word_list array
+
