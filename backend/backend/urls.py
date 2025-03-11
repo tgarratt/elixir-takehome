@@ -17,6 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from codele.views import random_word_view
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('api/random-word', random_word_view, name='random_word'),
 ]
