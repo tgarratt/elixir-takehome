@@ -1,0 +1,2 @@
+# prevent env folder being pushed
+env/
