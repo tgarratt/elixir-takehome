@@ -17,10 +17,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from codele.views import check_word_view
+from codele.views import check_word_view, reset_word_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('api/check-word', check_word_view, name='check_word')
+    path('api/check-word', check_word_view, name='check_word'),
+    path('api/reset-word', reset_word_view, name='reset_word'),
 ]

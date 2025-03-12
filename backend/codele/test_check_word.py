@@ -1,3 +1,28 @@
+import django
+from django.conf import settings
+
+# set up memory for testing
+settings.configure(
+    DATABASES={
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': ':memory:',
+        }
+    },
+    CACHES={
+        'default': {
+            'BACKEND': 'django.core.cache.backends.locmem.LocMemCache',
+        }
+    },
+    INSTALLED_APPS=[
+        'codele'
+    ]
+)
+
+# Initialize Django
+django.setup()
+
+
 import unittest
 
 from unittest.mock import patch
@@ -18,9 +43,9 @@ class TestCheckWord(unittest.TestCase):
 
     @patch('codele.word_list.get_word')
     def test_check_word_all_false_for_non_matching(self, mock_get_word):
-        set_word('chart')
-        mock_get_word.return_value = 'chart'
-        guess = 'embed'
+        set_word('react')
+        mock_get_word.return_value = 'react'
+        guess = 'plumb'
         result = check_word(guess)
         self.assertEqual(result, [0, 0, 0, 0, 0])
 
