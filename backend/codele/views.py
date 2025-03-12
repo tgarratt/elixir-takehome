@@ -10,5 +10,5 @@ def check_word_view(request):
     if serializer.is_valid():
         guess = serializer.validated_data['guess']
         result = check_word(guess)
-        return Response({"result": result})
+        return Response({"guess": guess, "result": result})
     return Response(serializer.errors, status=400)

@@ -22,5 +22,5 @@ from codele.views import check_word_view
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('check-word/', check_word_view, name='check_word')
+    path('api/check-word', check_word_view, name='check_word')
 ]
