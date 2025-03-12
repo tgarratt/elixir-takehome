@@ -1,16 +1,12 @@
 import "./App.css"
 
-const App = () => {
+import Codele from "./components/Codele"
 
-  // Recieve random word from backend
-  // Store word in slice
-  // Create UI with inputs
-  // On submit break down the imput and compare to stored word
-  // Relay relevent information (if the letter is red, green or amber)
+const App = () => {
 
   return (
     <div className="App">
-      welcome :)
+      <Codele />
     </div>
   )
 }
