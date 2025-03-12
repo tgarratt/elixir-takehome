@@ -10,8 +10,8 @@ describe('Codele component', () => {
   });
 
   test('checkWord should return all false for non-matching words', () => {
-    const word = 'react';
-    const guess = 'query';
+    const word = 'chart';
+    const guess = 'embed';
     const result = checkWord(word, guess);
     expect(result).toEqual([0, 0, 0, 0, 0]);
   });
@@ -21,6 +21,13 @@ describe('Codele component', () => {
     const guess = 'input';
     const result = checkWord(word, guess);
     expect(result).toEqual([0, 0, 0, 0, 1]);
+  });
+
+  test('checkWord should return 2 if correct letter wrong location', () => {
+    const word = 'react';
+    const guess = 'merge';
+    const result = checkWord(word, guess);
+    expect(result).toEqual([0, 1, 2, 0, 2]);
   });
 });
 

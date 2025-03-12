@@ -2,9 +2,13 @@ import React from "react"
 
 export const checkWord = ((word : string, guess: string): number[] => {
   return guess.split('').map((letter, index) => {
-    return word[index] === letter ? 1 : 0;
+    const strictMatch =  word[index] === letter ? 1 : 0;
+    if(strictMatch === 0){
+     return  word.includes(letter) ? 2 : 0
+    } else {
+      return 1
+    }
   });
-  // return word === guess
 })
 
 const Codele = () => {
