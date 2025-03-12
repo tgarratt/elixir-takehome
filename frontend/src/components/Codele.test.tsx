@@ -2,25 +2,25 @@ import { checkWord } from "./Codele";
 
 describe('Codele component', () => {
 
-  test('checkWord should return true for matching words', () => {
+  test('checkWord should return all true for matching words', () => {
     const word = 'react';
     const guess = 'react';
     const result = checkWord(word, guess);
-    expect(result).toBe(true);
+    expect(result).toEqual([1, 1, 1, 1, 1]);
   });
 
-  test('checkWord should return false for non-matching words', () => {
+  test('checkWord should return all false for non-matching words', () => {
     const word = 'react';
     const guess = 'query';
     const result = checkWord(word, guess);
-    expect(result).toBe(false);
+    expect(result).toEqual([0, 0, 0, 0, 0]);
   });
 
-  test('checkWord should return false for words of different lengths', () => {
+  test('checkWord should return both true and false for partial-matching words', () => {
     const word = 'react';
-    const guess = 'reactnative';
+    const guess = 'input';
     const result = checkWord(word, guess);
-    expect(result).toBe(false);
+    expect(result).toEqual([0, 0, 0, 0, 1]);
   });
 });
 

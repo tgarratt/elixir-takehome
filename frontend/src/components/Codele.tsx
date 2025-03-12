@@ -1,7 +1,10 @@
 import React from "react"
 
-export const checkWord = ((word : string, guess: string): boolean => {
-  return word === guess
+export const checkWord = ((word : string, guess: string): number[] => {
+  return guess.split('').map((letter, index) => {
+    return word[index] === letter ? 1 : 0;
+  });
+  // return word === guess
 })
 
 const Codele = () => {
