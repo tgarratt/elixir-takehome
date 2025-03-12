@@ -1,13 +1,14 @@
-import random
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from .utils import check_word
+from .serializers import CheckWordSerializer
 
-from django.shortcuts import render
-from django.http import JsonResponse
 
-from .word_list import words
-
-# Import word list
-# Return one random word from word_list array
-
-def random_word_view(request):
-    word = random.choice(words)
-    return JsonResponse({"word": word})
+@api_view(['POST'])
+def check_word_view(request):
+    serializer = CheckWordSerializer(data=request.data)
+    if serializer.is_valid():
+        guess = serializer.validated_data['guess']
+        result = check_word(guess)
+        return Response({"result": result})
+    return Response(serializer.errors, status=400)

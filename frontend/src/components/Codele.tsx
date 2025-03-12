@@ -1,23 +1,11 @@
 import React from "react"
 
-export const checkWord = ((word : string, guess: string): number[] => {
-  return guess.split('').map((letter, index) => {
-    const strictMatch =  word[index] === letter ? 1 : 0;
-    if(strictMatch === 0){
-     return  word.includes(letter) ? 2 : 0
-    } else {
-      return 1
-    }
-  });
-})
 
 const Codele = () => {
 
-  // Recieve random word from backend
-  // Store word in slice
-  // Create UI with inputs
-  // On submit break down the imput and compare to stored word
-  // Relay relevent information (if the letter is red, green or amber)
+  // have input field which submits word to backend
+  // await response which will be in array format [1, 1, 1, 1, 1] depending on score
+  // store word and display colours depending on score 
 
   return (
     <div className="App">
